@@ -65,7 +65,7 @@ export type Database = {
                         isOneToOne: false;
                         referencedRelation: "users";
                         referencedColumns: ["id"];
-                    },
+                    }
                 ];
             };
             order_item: {
@@ -104,7 +104,7 @@ export type Database = {
                         isOneToOne: false;
                         referencedRelation: "product";
                         referencedColumns: ["id"];
-                    },
+                    }
                 ];
             };
             product: {
@@ -148,7 +148,7 @@ export type Database = {
                         isOneToOne: false;
                         referencedRelation: "category";
                         referencedColumns: ["id"];
-                    },
+                    }
                 ];
             };
             users: {
@@ -211,7 +211,7 @@ export type Tables<
     }
         ? keyof (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
               Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-        : never = never,
+        : never = never
 > = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
     ? (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
           Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
@@ -220,12 +220,12 @@ export type Tables<
         ? R
         : never
     : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
-      ? (DefaultSchema["Tables"] & DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {
-            Row: infer R;
-        }
-          ? R
-          : never
-      : never;
+    ? (DefaultSchema["Tables"] & DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {
+          Row: infer R;
+      }
+        ? R
+        : never
+    : never;
 
 export type TablesInsert<
     DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"] | { schema: keyof Database },
@@ -233,7 +233,7 @@ export type TablesInsert<
         schema: keyof Database;
     }
         ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-        : never = never,
+        : never = never
 > = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
     ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
           Insert: infer I;
@@ -241,12 +241,12 @@ export type TablesInsert<
         ? I
         : never
     : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
-      ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
-            Insert: infer I;
-        }
-          ? I
-          : never
-      : never;
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+          Insert: infer I;
+      }
+        ? I
+        : never
+    : never;
 
 export type TablesUpdate<
     DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"] | { schema: keyof Database },
@@ -254,7 +254,7 @@ export type TablesUpdate<
         schema: keyof Database;
     }
         ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-        : never = never,
+        : never = never
 > = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
     ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
           Update: infer U;
@@ -262,12 +262,12 @@ export type TablesUpdate<
         ? U
         : never
     : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
-      ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
-            Update: infer U;
-        }
-          ? U
-          : never
-      : never;
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+          Update: infer U;
+      }
+        ? U
+        : never
+    : never;
 
 export type Enums<
     DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"] | { schema: keyof Database },
@@ -275,12 +275,12 @@ export type Enums<
         schema: keyof Database;
     }
         ? keyof Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-        : never = never,
+        : never = never
 > = DefaultSchemaEnumNameOrOptions extends { schema: keyof Database }
     ? Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
     : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
-      ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
-      : never;
+    ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
+    : never;
 
 export type CompositeTypes<
     PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"] | { schema: keyof Database },
@@ -288,12 +288,12 @@ export type CompositeTypes<
         schema: keyof Database;
     }
         ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-        : never = never,
+        : never = never
 > = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
     ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
     : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
-      ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
-      : never;
+    ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
+    : never;
 
 export const Constants = {
     public: {

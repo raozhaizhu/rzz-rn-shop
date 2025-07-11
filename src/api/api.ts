@@ -160,16 +160,13 @@ export const createOrderItem = () => {
                 )
                 .select("*");
 
-            const productQuantities = insertData.reduce(
-                (acc, { productId, quantity }) => {
-                    if (!acc[productId]) {
-                        acc[productId] = 0;
-                    }
-                    acc[productId] += quantity;
-                    return acc;
-                },
-                {} as Record<number, number>
-            );
+            const productQuantities = insertData.reduce((acc, { productId, quantity }) => {
+                if (!acc[productId]) {
+                    acc[productId] = 0;
+                }
+                acc[productId] += quantity;
+                return acc;
+            }, {} as Record<number, number>);
 
             await Promise.all(
                 Object.entries(productQuantities).map(async ([productId, totalQuantity]) =>

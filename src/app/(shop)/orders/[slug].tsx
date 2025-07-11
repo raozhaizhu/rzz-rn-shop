@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet, FlatList, ActivityIndicator, Image } from "react-native";
-import React from "react";
 import { Redirect, Stack, useLocalSearchParams } from "expo-router";
 import { ORDERS } from "@/assets/orders";
 import { getMyOrder } from "@/api/api";
