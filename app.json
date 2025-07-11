@@ -1,29 +1,49 @@
 {
   "expo": {
     "name": "rn-shop",
+    "scheme": "rn-shop",
     "slug": "rn-shop",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "@/assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "@/assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.rnshop",
+      "usesCleartextTraffic": true,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "@/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "usesCleartextTraffic": true,
+      "edgeToEdgeEnabled": true,
+      "package": "com.anonymous.rnshop"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "@/assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-build-properties",
+      "expo-notifications"
+    ],
+    "owner": "raozhaizhu",
+    "extra": {
+      "eas": {
+        "projectId": "2f687985-ea9f-40f5-8847-2dafceec2a08"
+      }
     }
   }
 }
